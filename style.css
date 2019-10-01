@@ -18,7 +18,6 @@ h1 {
     color: white;
     text-align: center;
     background-color: steelblue;
-    font-weight: normal;
     text-transform: uppercase;
     padding: 20px 0;
 }
@@ -31,6 +30,7 @@ h1 {
 .container {
     max-width: 600px;
     margin: 0 auto;
+    padding: 30px;
 }
 
 .square {
@@ -40,7 +40,7 @@ h1 {
     margin: 1.66%;
     float: left;
     border-radius: 50%;
-    transition: background-color .5s;
+    transition: all .5s;
 }
 
 .selected {
@@ -55,6 +55,7 @@ button {
     height: 100%;
     font-weight: 700;
     color: steelblue;
+    padding: 0 10px;
     letter-spacing: 1px;
     font-size: inherit;
     transition: all .5s;
@@ -63,6 +64,10 @@ button {
 button:hover {
     color: white;
     background-color: steelblue;
+}
+
+button:focus {
+    outline: 0;
 }
 
 .message {
