@@ -1,9 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: #333333;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.stripe {
+    background: white;
+    text-align: center;
+    height: 30px;
 }
 
 h1 {
     color: white;
+    text-align: center;
+    background-color: steelblue;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+.colorDisplay {
+    font-size: 150%;
+    display: block;
 }
 
 .container {
@@ -17,4 +39,33 @@ h1 {
     padding-bottom: 30%;
     margin: 1.66%;
     float: left;
+    border-radius: 50%;
+    transition: background-color .5s;
+}
+
+.selected {
+    color: white;
+    background-color:steelblue;
+}
+
+button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all .5s;
+}
+
+button:hover {
+    color: white;
+    background-color: steelblue;
+}
+
+.message {
+    display: inline-block;
+    width: 20%;
 }

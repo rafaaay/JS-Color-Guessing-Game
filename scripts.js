@@ -1,11 +1,66 @@
-var colors = generateRandomColors(6);
+var numSquares = 6;
+var colors = generateRandomColors(numSquares);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.querySelector(".colorDisplay");
 var messageDisplay = document.querySelector(".message");
+var h1 = document.querySelector("h1");
+var resetButton = document.querySelector(".reset");
+var easyBtn = document.querySelector(".easyBtn");
+var hardBtn = document.querySelector(".hardBtn");
+
+
+// East Button Clicked
+easyBtn.addEventListener("click", function() {
+    easyBtn.classList.add("selected");
+    hardBtn.classList.remove("selected");
+    numSquares = 3;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    // Change Square Colors
+    for (var i = 0; i < squares.length; i++) {
+        if (colors[i]) {
+            squares[i].style.backgroundColor = colors[i];
+        }
+        else {
+            squares[i].style.display = "none";
+        }
+    }
+});
+
+// Hard Button Clicked
+hardBtn.addEventListener("click", function() {
+    hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+    numSquares = 6;
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    // Change Square Colors
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "block";
+    }
+});
+
+
+// Reset Button Clicked
+resetButton.addEventListener("click", function() {
+    // Generate Colors
+    colors = generateRandomColors(numSquares);
+    // Pick New Random Colors
+    pickedColor = pickColor();
+    // Change Color Display to Match Picked Color
+    colorDisplay.textContent = pickedColor;
+    // Change Colors of Squares
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+    }
+    h1.style.backgroundColor = "steelblue";
+});
 
 colorDisplay.textContent = pickedColor;
-
 
 for (var i = 0; i < squares.length; i++) {
 
@@ -25,6 +80,10 @@ for (var i = 0; i < squares.length; i++) {
 
             // Call Change Colors Function
             changeColors(clickedColor);
+            h1.style.backgroundColor = clickedColor;
+
+            // Change Reset Button Text
+            resetButton.textContent = "Play Again?";
         }
         else {
             this.style.backgroundColor = "#333333";
